@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/views/layout/index'
 import Dashboard from '@/views/dashboard'
+// import From from '@/views/form'
 
 Vue.use(Router)
 

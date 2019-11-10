@@ -1,6 +1,38 @@
 <!--  -->
 <template>
-  <div>我是侧边栏</div>
+    <el-menu
+      default-active="1"
+      @open="handleOpen"
+      @close="handleClose"
+      background-color="#545c64"
+      text-color="#fff"
+      active-text-color="#ffd04b">
+      <el-submenu index="1">
+        <template slot="title">
+          <i class="el-icon-location"></i>
+          <span>导航一</span>
+        </template>
+        <el-menu-item-group>
+          <el-menu-item index="1-1">选项1分数和故事术后高速和</el-menu-item>
+          <el-menu-item index="1-2">选项2</el-menu-item>
+        </el-menu-item-group>
+        <el-menu-item-group>
+          <el-menu-item index="1-3">选项3</el-menu-item>
+        </el-menu-item-group>
+        <el-submenu index="1-4">
+          <template slot="title">选项4</template>
+          <el-menu-item index="1-4-1">选项hugs结构和开始可是个黑客攻击黑客手段1</el-menu-item>
+        </el-submenu>
+      </el-submenu>
+      <el-menu-item index="2">
+        <i class="el-icon-menu"></i>
+        <span slot="title">导航二</span>
+      </el-menu-item>
+      <el-menu-item index="3">
+        <i class="el-icon-setting"></i>
+        <span slot="title">导航四</span>
+      </el-menu-item>
+    </el-menu>
 </template>
 
 <script>
@@ -8,12 +40,24 @@ export default {
   data () {
     return {}
   },
-  // 生命周期 - 创建完成（访问当前this实例）
+  methods: {
+    handleOpen () {
+      // this.$router.push('/form/index')
+      console.log('打开了')
+    },
+    handleClose () {
+      console.log('关闭了')
+    }
+  },
   created () {},
-  // 生命周期 - 挂载完成（访问DOM元素）
   mounted () {}
 }
 </script>
-<style scoped>
-/* @import url(); 引入css类 */
+<style lang="less" scoped>
+.el-menu {
+  // margin-top: 80px;
+  width: 200px;
+  height: 100vh;
+  overflow: hidden;
+}
 </style>
