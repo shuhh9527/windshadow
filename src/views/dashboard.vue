@@ -1,6 +1,6 @@
 <!-- 首页 -->
 <template>
-  <div>首页，测试1037143183用户</div>
+  <div>欢迎登陆选秀后台系统</div>
 </template>
 
 <script>
