@@ -1,5 +1,6 @@
 <!--  -->
 <template>
+<div>
     <el-menu
       default-active="1"
       @open="handleOpen"
@@ -33,6 +34,8 @@
         <span slot="title">导航四</span>
       </el-menu-item>
     </el-menu>
+    <router-view></router-view>
+    </div>
 </template>
 
 <script>
