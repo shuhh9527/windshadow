@@ -176,7 +176,7 @@ export default {
   line-height: 60px;
 }
 .el-aside {
-  background-color: #d3dce6;
+  background-color:rgb(84, 92, 100);
   color: #333;
   text-align: center;
   line-height: 200px;
@@ -205,9 +205,9 @@ body > .el-container {
   height: 50px;
   line-height: 50px;
   padding: 0 45px;
-  /* min-width: 198px; */
+  min-width: 198px;
 }
-.el-menu {
-  min-height: 500px;
+.el-aside{
+  padding-bottom:200px
 }
 </style>

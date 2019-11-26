@@ -85,4 +85,5 @@ export default {
     font-weight: bold;
     padding:0 5px
 }
+
 </style>
