@@ -1,7 +1,8 @@
 <template>
   <el-container>
     <el-header>
-      <el-row class="headerline">
+      <Navbar></Navbar>
+      <!-- <el-row class="headerline">
         <el-col :span="6">
           <div class="grid-content sy">
             <img src="@/imgs/shouye.png" />首页
@@ -23,7 +24,7 @@
             </el-select>
           </div>
         </el-col>
-      </el-row>
+      </el-row> -->
     </el-header>
     <el-container>
       <el-aside width="200px">
@@ -77,7 +78,14 @@
 <script>
 import WsMenu from "./WsMenu";
 import WsNavbar from "./WsNavbar";
+import Navbar from '@/layout/Navbar'
 export default {
+  name: "Dashboard",
+  components: {
+    WsMenu,
+    WsNavbar,
+    Navbar
+  },  
   data() {
     return {
       value: "",
@@ -137,11 +145,6 @@ export default {
       ]
     };
   },
-  name: "dashboard",
-  components: {
-    WsMenu,
-    WsNavbar
-  },
   mounted() {
     this.$router.push("/dashboard");
   },
@@ -170,10 +173,13 @@ export default {
   font-size: 22px;
 }
 .el-header {
-  background-color: #0474b3;
+  width: 100%;
+  height: 100%;
   color: #333;
   text-align: center;
   line-height: 60px;
+  padding: 0px;
+  margin: 0px;
 }
 .el-aside {
   background-color:rgb(84, 92, 100);
