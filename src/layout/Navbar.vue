@@ -5,7 +5,7 @@
       <el-col :span="4">
         <div>
           <img src="@/imgs/shouye.png" />首页
-        </div>        
+        </div>
       </el-col>
       <el-col :span="12">不好</el-col>
       <el-col :span="4">到底好不</el-col>
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name:'Navbar',
+  name: 'Navbar',
   data () {
     return {}
   },
@@ -23,10 +23,14 @@ export default {
   mounted () {}
 }
 </script>
-<style>
+<style scoped='scoped' lang='scss'>
 .ws-navbar {
   height: 80px;
   width: 100%;
   background-color: lightgreen;
+  img{
+    width:100px;
+    height:100px;
+  }
 }
 </style>
