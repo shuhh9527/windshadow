@@ -1,31 +1,10 @@
 <template>
+<div class="dashboard">
   <el-container>
     <el-header>
       <Navbar></Navbar>
-      <!-- <el-row class="headerline">
-        <el-col :span="6">
-          <div class="grid-content sy">
-            <img src="@/imgs/shouye.png" />首页
-          </div>
-        </el-col>
-        <el-col :span="12">
-          <div class="grid-content fontstyle">后台管理系统</div>
-        </el-col>
-        <el-col :span="6">
-          <div class="grid-content sy">
-            <img src="@/imgs/touxiang.png" />
-            <el-select v-model="value" placeholder="系统管理员">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
-          </div>
-        </el-col>
-      </el-row> -->
     </el-header>
+  </el-container>
     <el-container>
       <el-aside width="200px">
         <el-row>
@@ -73,7 +52,7 @@
         <router-view></router-view>
       </el-main>
     </el-container>
-  </el-container>
+    </div>
 </template>
 <script>
 import WsMenu from "./WsMenu";
@@ -158,8 +137,19 @@ export default {
   }
 };
 </script>
-<style>
-.sy img {
+<style lang='scss'>
+  body{
+    margin: 0px;
+    padding: 0px;
+  }
+  .dashboard{
+    height: 60px;
+    width: 100%;
+    .el-header{
+      padding: 0px;
+    }    
+  }
+/* .sy img {
   width: 50px;
   vertical-align: middle;
 }
@@ -215,5 +205,5 @@ body > .el-container {
 }
 .el-aside{
   padding-bottom:200px
-}
+} */
 </style>
