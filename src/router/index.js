@@ -15,12 +15,12 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: '/',
-      name: 'layout',
-      component: Layout,
-      children: []
-    },
+    // {
+    //   path: '/',
+    //   name: 'layout',
+    //   component: Layout,
+    //   children: []
+    // },
     {
       path: '/abc',
       name: 'abc',
@@ -75,7 +75,7 @@ export default new Router({
     },
     {
       path: '/protocol',
-      name: 'protocol',
+      name: 'protocol2',
       component: protocol
     }
 
