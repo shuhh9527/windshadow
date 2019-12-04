@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="watchactivity">
     <el-row class="buttonwidth">
       <el-button type="info" plain @click="cancle">
         <i class="el-icon-back"></i>返回
@@ -11,48 +11,40 @@
         <i class="el-icon-upload2"></i>上传图片
       </el-button>
     </el-row>
-    <el-form ref="form" :model="form" label-width="80px">
-      <el-form-item label="活动名称">
-        <el-input v-model="form.name"></el-input>
+    <el-form ref="form" :model="form" label-width="120px">
+      <el-form-item label="活动编号" class="activenumber">
+        <el-input v-model="this.$route.query.activity_uuid"></el-input>
       </el-form-item>
-      <el-form-item label="活动区域">
-        <el-select v-model="form.region" placeholder="请选择活动区域">
-          <el-option label="区域一" value="shanghai"></el-option>
-          <el-option label="区域二" value="beijing"></el-option>
-        </el-select>
+      <el-form-item label="活动类型" class="activenumber">
+        <el-input value="常规活动"></el-input>
       </el-form-item>
-      <el-form-item label="活动时间">
+      <el-form-item label="活动主题" class="activenumber">
+        <el-input v-model="this.$route.query.activity_topic"></el-input>
+      </el-form-item>
+       <el-form-item label="报名人数上限" class="activenumber">
+        <el-input v-model="this.$route.query.maxnum"></el-input>
+      </el-form-item>
+      <el-form-item label="报名时间">
         <el-col :span="11">
-          <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
+            <el-date-picker
+              v-model="value1"
+              type="daterange"
+              range-separator="至"
+              start-placeholder="开始日期"
+              end-placeholder="结束日期">
+            </el-date-picker>
         </el-col>
-        <el-col class="line" :span="2">-</el-col>
+      </el-form-item>
+        <el-form-item label="选拔时间">
         <el-col :span="11">
-          <el-time-picker placeholder="选择时间" v-model="form.date2" style="width: 100%;"></el-time-picker>
+            <el-date-picker
+              v-model="value2"
+              type="daterange"
+              range-separator="至"
+              start-placeholder="开始日期"
+              end-placeholder="结束日期">
+            </el-date-picker>
         </el-col>
-      </el-form-item>
-      <el-form-item label="即时配送">
-        <el-switch v-model="form.delivery"></el-switch>
-      </el-form-item>
-      <el-form-item label="活动性质">
-        <el-checkbox-group v-model="form.type">
-          <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
-          <el-checkbox label="地推活动" name="type"></el-checkbox>
-          <el-checkbox label="线下主题活动" name="type"></el-checkbox>
-          <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
-        </el-checkbox-group>
-      </el-form-item>
-      <el-form-item label="特殊资源">
-        <el-radio-group v-model="form.resource">
-          <el-radio label="线上品牌商赞助"></el-radio>
-          <el-radio label="线下场地免费"></el-radio>
-        </el-radio-group>
-      </el-form-item>
-      <el-form-item label="活动形式">
-        <el-input type="textarea" v-model="form.desc"></el-input>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="">立即创建</el-button>
-        <el-button>取消</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -69,33 +61,72 @@ export default {
         delivery: false,
         type: [],
         resource: "",
-        desc: ""
-      }
+        desc: "",
+      },
+        pickerOptions: {
+          shortcuts: [{
+            text: '最近一周',
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+              picker.$emit('pick', [start, end]);
+            }
+          }, {
+            text: '最近一个月',
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+              picker.$emit('pick', [start, end]);
+            }
+          }, {
+            text: '最近三个月',
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+              picker.$emit('pick', [start, end]);
+            }
+          }]
+        },
+        value1: '',
+        value2: ''
+
     };
   },
-    methods:{
-      cancle () {
-          this.$router.go(-1)
-      }
+  methods: {
+    cancle() {
+      this.$router.go(-1);
+    }
   }
 };
 </script>
-<style scoped>
-.buttonwidth {
-  text-align: left;
-}
-.formwidth {
-  text-align: left;
-}
-.formwidth el-input {
-  width: 100px;
-}
-.inputwidth {
-  text-align: left;
-  display: inline-block;
-  width: 238px;
-}
-.el-form{
-    text-align:left
+<style scoped lang="scss">
+.watchactivity {
+  color: #fff;
+  .el-form-item {
+    display: inline-block;
+  }
+  .buttonwidth {
+    text-align: left;
+  }
+  .formwidth {
+    text-align: left;
+  }
+  .formwidth el-input {
+    width: 100px;
+  }
+  .inputwidth {
+    text-align: left;
+    display: inline-block;
+    width: 238px;
+  }
+  .el-form {
+    text-align: left;
+  }
+  .activenumber {
+    width: 40%;
+  }
 }
 </style>
