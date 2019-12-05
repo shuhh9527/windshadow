@@ -9,18 +9,20 @@ import listactivity from '@/views/activityManage/list_activity'
 import addactive from '@/views/activityManage/addactive'
 import lookactive from '@/views/activityManage/lookactive'
 import user_activity from '@/views/user_activity'
+import login from '@/views/login/index'
 // import From from '@/views/form'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'layout',
-    //   component: Layout,
-    //   children: []
-    // },
+    {
+      path: '/',
+      name: 'login',
+      component: login,
+      children: []
+    },
     {
       path: '/abc',
       name: 'abc',
